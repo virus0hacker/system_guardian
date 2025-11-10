@@ -47,7 +47,7 @@ Clone this repository:
 
 git clone https://github.com/virus0hacker/system_guardian.git
 
-cd system-guardian
+cd system_guardian
 
 
 Run the tool:
