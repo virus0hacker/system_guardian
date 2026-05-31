@@ -39,7 +39,7 @@ Install dependencies before running:
 pip install psutil matplotlib
 ```
 ---
-🚀 How to Run:
+🚀 How to Run
 ---
 Clone this repository :
 ---
