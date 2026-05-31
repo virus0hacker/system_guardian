@@ -41,7 +41,6 @@ pip install psutil matplotlib
 ---
 🚀 How to Run:
 ---
----
 Clone this repository :
 ---
 
