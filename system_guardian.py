@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 # =====================================================
-#  ml-ftt System Guardian (GUI Edition)
-#  Author: ml-ftt (© 2025)
+#  System Guardian (GUI)
+#  Author: ViRuS-HaCkEr (© 2025)
 #  Description:
-#     Real-time system process monitor & analyzer.
-#     Detects suspicious or high-risk processes using
-#     heuristic analysis and provides GUI control.
+#     Real-time system process monitor & analyzer
 # =====================================================
 
 import psutil
@@ -15,7 +13,6 @@ import threading, time, json, csv
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-# ---------------- Helper: Process Risk Classifier ----------------
 
 def classify_process(proc):
     """Heuristic risk analysis for a process."""
@@ -40,7 +37,7 @@ def classify_process(proc):
     except Exception:
         return "Unknown", "gray"
 
-# ---------------- GUI Class ----------------
+
 
 class SystemGuardianApp:
     def __init__(self, root):
@@ -66,14 +63,14 @@ class SystemGuardianApp:
 .----)   |       |  | .----)   |      |  |     |  |____ |  |  |  |    |  |__| | |  `--'  |  /  _____  \  |  |\  \----.|  '--'  ||  |  /  _____  \  |  |\   | 
 |_______/        |__| |_______/       |__|     |_______||__|  |__|     \______|  \______/  /__/     \__\ | _| `._____||_______/ |__| /__/     \__\ |__| \__| 
                                                                                                                                                              
-              ⚔️ ViRuS - HaCkEr ⚔️
+                ViRuS - HaCkEr 
    Real-Time Process Analyzer & Security Monitor
 =============================================================
 """
         tk.Label(banner_frame, text=banner_text, justify="center",
                  fg="#00ff88", bg="#052d12", font=("Consolas", 10), padx=10).pack()
 
-        # ===== Control Buttons =====
+        
         ctrl = tk.Frame(self.root, bg="#04140a", pady=10)
         ctrl.pack(fill=tk.X)
         ttk.Button(ctrl, text="Start Monitoring", command=self.start_monitor).pack(side=tk.LEFT, padx=5)
@@ -82,14 +79,14 @@ class SystemGuardianApp:
         ttk.Button(ctrl, text="Clean Suspicious", command=self.clean_suspicious).pack(side=tk.LEFT, padx=5)
         ttk.Button(ctrl, text="Export Report", command=self.export_report).pack(side=tk.RIGHT, padx=5)
 
-        # ===== Table for Processes =====
+         
         columns = ("PID", "Name", "User", "CPU%", "Memory%", "Status")
         self.tree = ttk.Treeview(self.root, columns=columns, show="headings")
         for col in columns:
             self.tree.heading(col, text=col)
         self.tree.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
 
-        # ===== Graph Section =====
+         
         graph_frame = tk.Frame(self.root, bg="#04140a")
         graph_frame.pack(fill=tk.BOTH, expand=False, padx=10, pady=10)
         fig, self.ax = plt.subplots(figsize=(6, 2), facecolor="#04140a")
@@ -103,7 +100,7 @@ class SystemGuardianApp:
         self.status_label = tk.Label(self.root, text="Status: Idle", fg="#9cf2b0", bg="#04140a")
         self.status_label.pack(fill=tk.X, pady=5)
 
-    # ------------- Core Monitoring Logic -------------
+     
     def start_monitor(self):
         if self.running:
             return
@@ -166,7 +163,7 @@ class SystemGuardianApp:
             self.canvas.draw()
             time.sleep(1)
 
-    # ------------- Actions -------------
+     
     def kill_selected(self):
         item = self.tree.selection()
         if not item:
@@ -209,7 +206,7 @@ class SystemGuardianApp:
                                      d["cpu_percent"], d["memory_percent"], d["status"]])
         messagebox.showinfo("Export", f"Report saved: {file}")
 
-# ---------------- Main ----------------
+ 
 def main():
     root = tk.Tk()
     app = SystemGuardianApp(root)
